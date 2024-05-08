@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: mintcream;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.div{
+    margin: 10%;
+    background-color: cadetblue;
+}
+    </style>
+</head>
+<body>
+    <div class="div">
+    <h1>Welcome to Our Hotel Booking System</h1>
+    <form id="bookingForm">
+        <label for="checkInDate">Check-in Date:</label>
+        <input type="date" id="checkInDate" name="checkInDate" required>
+        <label for="checkOutDate">Check-out Date:</label>
+        <input type="date" id="checkOutDate" name="checkOutDate" required>
+        <button type="submit">Check Availability</button>
+    </form>
+    <div id="availability"></div>
+</div>
+    <script>
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const checkInDate = document.getElementById("checkInDate").value;
+    const checkOutDate = document.getElementById("checkOutDate").value;
+    // Here you can send a request to the backend to check availability and display the result
+    const availability = checkAvailability(checkInDate, checkOutDate);
+    document.getElementById("availability").innerText = availability ? "Rooms available!" : "Sorry, no rooms available for selected dates.";
+});
+
+function checkAvailability(checkInDate, checkOutDate) {
+    // This is a placeholder function, you would need to implement the backend logic to check availability
+    // You can use AJAX, Fetch API, or any other method to send a request to the backend
+    // and receive a response indicating availability
+    // For simplicity, let's assume availability is always true
+    return true;
+}
+
+    </script>
+
+</body>
+</html>
